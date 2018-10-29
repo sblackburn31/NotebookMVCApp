@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotebookMVCApp", "NotebookMVCApp\NotebookMVCApp.csproj", "{007371C0-BE02-4B7F-9059-45C815383FD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotebookMVCApp.Tests", "NotebookMVCApp.Tests\NotebookMVCApp.Tests.csproj", "{29E721ED-7CB4-4CBF-8462-FBAD8A146061}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{007371C0-BE02-4B7F-9059-45C815383FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007371C0-BE02-4B7F-9059-45C815383FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007371C0-BE02-4B7F-9059-45C815383FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007371C0-BE02-4B7F-9059-45C815383FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E721ED-7CB4-4CBF-8462-FBAD8A146061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E721ED-7CB4-4CBF-8462-FBAD8A146061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E721ED-7CB4-4CBF-8462-FBAD8A146061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E721ED-7CB4-4CBF-8462-FBAD8A146061}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2C16E2B-5570-4737-B74B-826ABA47FC19}
+	EndGlobalSection
+EndGlobal

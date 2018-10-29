@@ -1,0 +1,63 @@
+﻿@model NotebookMVCApp.Models.NoteBook
+
+@{
+    ViewBag.Title = "Notebook";
+    ViewBag.Description = "This is the main manage notebook screen.  It is a secure screen.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" >
+    <div class="col-sm-7"><h3>@ViewBag.UserTitle Notebook</h3></div>
+</div>
+<p>
+    @Html.ActionLink("Create a New Note", "Create", null, new { @class = "btn btn-info text-dark" })
+</p>
+<table class="table table-striped table-sm">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note.UpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note.NoteText)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Notes)
+    {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "EditNote", new { id = item.NoteId }) |
+            @Html.ActionLink("View", "Details", new { id = item.NoteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NoteId })
+        </td>
+        <td>
+            @item.Subject
+        </td>
+        <td>
+            @item.CreateDate.ToShortDateString()
+        </td>
+        <td>
+            @item.UpdateDate.ToShortDateString()
+        </td>
+        <td>
+            @item.NoteText.Substring(0, Math.Min(40, item.NoteText.Length))
+        </td>
+    </tr>
+    }
+
+</table>
+
+<div class="row">
+</div>
+
+
+<div class="row">
+    <div class="col-sm-5 text-right">Notebook Created on: @Model.CreateDate.ToShortDateString() @Model.CreateDate.ToShortTimeString() </div>
+</div>
