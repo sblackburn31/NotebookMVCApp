@@ -1,0 +1,39 @@
+﻿@model ScottASPMVCApp1.Models.Note
+
+@{
+    ViewBag.Title = "Note";
+    ViewBag.Description = "This screen allows the note to be modified.  Once the note is saved, it remains on the screen until editing is canceled.  It is a secure screen.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("EditNote", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.NoteId)
+        @Html.HiddenFor(model => model.NoteBookId)
+
+        @Html.Partial("_EditNotePartial")
+
+        <div class="form-group">
+            <div class="form-group">
+                <span class="col-md-6">
+                    @Html.LabelFor(model => model.UpdateDate)
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 ">
+                <input type="submit" value="Save" class="btn btn-default btn-primary" />
+                @Html.ActionLink("Cancel Editing", "CloseNote", null, new { @class = "btn  btn-info" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

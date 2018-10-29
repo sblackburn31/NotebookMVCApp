@@ -1,0 +1,21 @@
+﻿@model ScottASPMVCApp1.Models.Note
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Description = "This screen displays a note, it provides a short cut to edit the note.  It is a secure screen.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.Partial("_DisplayNotePartial")
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Edit the Note", "EditNote", new { id = Model.NoteId }, new { @class = "btn  btn-info" })
+                @Html.ActionLink("Return to the Notebook", "Notebook", null, new { @class = "btn  btn-info" })
+            </div>
+        </div>
+    </div>
+}

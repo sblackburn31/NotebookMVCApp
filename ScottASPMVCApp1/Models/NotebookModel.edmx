@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NotebooksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoteBookId" Type="bigint" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="80" />
+          <Property Name="NoteText" Type="varchar" MaxLength="500" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoteBook">
+          <Key>
+            <PropertyRef Name="NotebookId" />
+          </Key>
+          <Property Name="NotebookId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="CurrentNote" Type="bigint" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Note_ToNoteBook">
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="1" />
+          <End Role="Note" Type="Self.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteBook">
+              <PropertyRef Name="NotebookId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="NoteBookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToCurrentNote">
+          <End Role="Note" Type="Self.Note" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Note">
+              <PropertyRef Name="NoteId" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="CurrentNote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NotebooksModelStoreContainer">
+          <EntitySet Name="Note" EntityType="Self.Note" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoteBook" EntityType="Self.NoteBook" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Note_ToNoteBook" Association="Self.FK_Note_ToNoteBook">
+            <End Role="NoteBook" EntitySet="NoteBook" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToCurrentNote" Association="Self.FK_NoteBook_ToCurrentNote">
+            <End Role="Note" EntitySet="Note" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NotebooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoteBookId" Type="Int64" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NoteText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="NoteBook" Relationship="Self.FK_Note_ToNoteBook" FromRole="Note" ToRole="NoteBook" />
+          <NavigationProperty Name="NoteBooks" Relationship="Self.FK_NoteBook_ToCurrentNote" FromRole="Note" ToRole="NoteBook" />
+        </EntityType>
+        <EntityType Name="NoteBook">
+          <Key>
+            <PropertyRef Name="NotebookId" />
+          </Key>
+          <Property Name="NotebookId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurrentNote" Type="Int64" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Notes" Relationship="Self.FK_Note_ToNoteBook" FromRole="NoteBook" ToRole="Note" />
+          <NavigationProperty Name="Note" Relationship="Self.FK_NoteBook_ToCurrentNote" FromRole="NoteBook" ToRole="Note" />
+        </EntityType>
+        <Association Name="FK_Note_ToNoteBook">
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="1" />
+          <End Role="Note" Type="Self.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoteBook">
+              <PropertyRef Name="NotebookId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="NoteBookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToCurrentNote">
+          <End Role="Note" Type="Self.Note" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Note">
+              <PropertyRef Name="NoteId" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="CurrentNote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NotebooksEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Notes" EntityType="Self.Note" />
+          <EntitySet Name="NoteBooks" EntityType="Self.NoteBook" />
+          <AssociationSet Name="FK_Note_ToNoteBook" Association="Self.FK_Note_ToNoteBook">
+            <End Role="NoteBook" EntitySet="NoteBooks" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToCurrentNote" Association="Self.FK_NoteBook_ToCurrentNote">
+            <End Role="Note" EntitySet="Notes" />
+            <End Role="NoteBook" EntitySet="NoteBooks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NotebooksModelStoreContainer" CdmEntityContainer="NotebooksEntities1">
+          <EntitySetMapping Name="NoteBooks">
+            <EntityTypeMapping TypeName="NotebooksModel.NoteBook">
+              <MappingFragment StoreEntitySet="NoteBook">
+                <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CurrentNote" ColumnName="CurrentNote" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="IsTypeOf(NotebooksModel.Note)">
+              <MappingFragment StoreEntitySet="Note">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="NoteText" ColumnName="NoteText" />
+                <ScalarProperty Name="NoteBookId" ColumnName="NoteBookId" />
+                <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

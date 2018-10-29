@@ -1,0 +1,22 @@
+﻿@model ScottASPMVCApp1.Models.Note
+
+
+@* Display the Primary Edit Screen.  It consists only of the subject and note text *@
+@* Also handle invalid data entry, namely if either the note or subject are blank.*@
+@* Note the use of the PLACEHOLDER attribute.  These were used to replace the
+    subject and text lables that were not aesticly pleasing and to make 
+    the app more up-to-date look and feel.*@
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-group">
+    <div class="col-md-12">
+        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subject" } })
+        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-12">
+        @Html.TextAreaFor(model => model.NoteText, htmlAttributes: new { @rows = 10, @cols = 40, @class = "form-control", @placeholder = "Text" })
+        @Html.ValidationMessageFor(model => model.NoteText, "", new { @class = "text-danger" })
+    </div>
+</div>

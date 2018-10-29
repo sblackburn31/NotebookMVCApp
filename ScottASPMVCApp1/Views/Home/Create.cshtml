@@ -1,0 +1,24 @@
+﻿@model ScottASPMVCApp1.Models.Note
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.Description = "This screen is used to create a new note.  It is a secure screen.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.Partial("_EditNotePartial")
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create Note" class="btn btn-default btn-primary" />
+                    @Html.ActionLink("Cancel", "Notebook", null, new { @class = "btn  btn-info" })
+                </div>
+            </div>
+        </div>
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
