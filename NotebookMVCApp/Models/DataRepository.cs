@@ -1,4 +1,14 @@
-﻿using System;
+﻿/// <project>Notebook App</project>
+/// <Version>1.0.0</Version>
+/// <author>David Scott Blackburn</author>
+/// <summary>
+/// DataRepository class
+/// This class is used to centralize the access to the data repositories used by the application.  This class makes it much easier to control access
+/// to multiple repositories and to unit test the system.
+/// For a full explanation for the thoughts behind using this method of data access control please refer to the following URL
+/// https://www.codeproject.com/Articles/576681/UnderstandingplusandplusImplementingplusRepository
+/// </summary>
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

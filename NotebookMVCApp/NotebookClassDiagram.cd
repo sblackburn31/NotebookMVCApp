@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NotebookMVCApp.Controllers.HomeController">
+    <Position X="0.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABgAGgCAAAAABAAAEAAEQAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotebookMVCApp.Models.DataRepository">
+    <Position X="3.75" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\DataRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NotebookMVCApp.Models.NotebookRepository">
+    <Position X="7" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAJAAAAAAAAEAAAAAABAAAAQAAQAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\NotebooksRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NotebookMVCApp.Models.NoteRepository">
+    <Position X="10.75" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAACAAAAEEAAAAAQAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\NoteRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NotebookMVCApp.Models.NotebooksEntities">
+    <Position X="3.75" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NotebookModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotebookMVCApp.Models.Note">
+    <Position X="10.75" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAEAAJEAAAAAACAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\Note.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotebookMVCApp.Models.NoteBook">
+    <Position X="7" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAAAAAAAAAAAAAAAAAAAAAAAABBAAEAEAA=</HashCode>
+      <FileName>Models\NoteBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotebookMVCApp.Models.NoteMetadata">
+    <Position X="10.75" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAIEAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\Metadata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotebookMVCApp.Models.NoteBookMetadata">
+    <Position X="7" Y="9.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\Metadata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotebookMVCApp.Startup">
+    <Position X="0.5" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NotebookMVCApp.Models.INote">
+    <Position X="10.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAACAAAAEEAAAAAQAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\INote.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NotebookMVCApp.Models.INotebook">
+    <Position X="7.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAEAAAAAABAAAAQAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\INotebook.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

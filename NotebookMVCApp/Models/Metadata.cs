@@ -1,7 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿/// <project>Notebook App</project>
+/// <Version>1.0.0</Version>
+/// <author>David Scott Blackburn</author>
+/// <summary>
+/// The classes here are used to more fully define the Note and Notebook properties.  These definitions are used to define the validatations, and field
+/// names used by the apps views.  The raw Note and Notebook classes should not be changed because they are entity framework generated classes and 
+/// can be overwritten therefore those classes should not be directly modified, so the metadata classes along with the PartialClasses are used to fully 
+/// describe the entity framework classes.
+/// </summary>
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace NotebookMVCApp.Models

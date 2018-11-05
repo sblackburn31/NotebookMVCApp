@@ -1,4 +1,9 @@
-﻿@model NotebookMVCApp.Models.Note
+﻿@* Author: David Scott Blackburn *@
+@* Project: Notebook Demo App *@
+@* Version: 1.0.0 *@
+@* Purpose: Display the note.  Does not allow for the editing of the note.*@
+
+@model NotebookMVCApp.Models.Note
 
 @{
     ViewBag.Title = "Details";
@@ -10,10 +15,15 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
+        @* Call to display the note in a read only form*@
         @Html.Partial("_DisplayNotePartial")
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
+
+                @*This directs the the app to the edit note screen*@
                 @Html.ActionLink("Edit the Note", "EditNote", new { id = Model.NoteId }, new { @class = "btn  btn-info" })
+
+                @*This returns to the Notebook*@
                 @Html.ActionLink("Return to the Notebook", "Notebook", null, new { @class = "btn  btn-info" })
             </div>
         </div>

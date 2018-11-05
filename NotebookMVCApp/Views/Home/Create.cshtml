@@ -1,24 +1,33 @@
-﻿@model NotebookMVCApp.Models.Note
+﻿@* Author: David Scott Blackburn *@
+@* Project: Notebook Demo App *@
+@* Version: 1.0.0 *@
+@* Purpose: The screen allows a for a new note to be created.*@
+
+@model NotebookMVCApp.Models.Note
 
 @{
     ViewBag.Title = "Create";
     ViewBag.Description = "This screen is used to create a new note.  It is a secure screen.";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            @Html.Partial("_EditNotePartial")
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create Note" class="btn btn-default btn-primary" />
-                    @Html.ActionLink("Cancel", "Notebook", null, new { @class = "btn  btn-info" })
-                </div>
+    <div class="form-horizontal">
+        @*Bring up the edit note partial screen*@
+        @Html.Partial("_EditNotePartial")
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*Provide a means to creation of the note this POSTs back to the Controller*@
+                <input type="submit" value="Create Note" class="btn btn-default btn-primary" />
+
+                @*Provide a means to cancel out of the addition of the current note, return back to the Notebook*@
+                @Html.ActionLink("Cancel", "Notebook", null, new { @class = "btn  btn-info" })
             </div>
         </div>
-    }
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

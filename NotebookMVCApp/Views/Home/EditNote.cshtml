@@ -1,4 +1,9 @@
-﻿@model NotebookMVCApp.Models.Note
+﻿@* Author: David Scott Blackburn *@
+@* Project: Notebook Demo App *@
+@* Version: 1.0.0 *@
+@* Purpose: Allows for the Modification of an existing note.  This is one of the primary screens of the application.*@
+
+@model NotebookMVCApp.Models.Note
 
 @{
     ViewBag.Title = "Note";
@@ -14,6 +19,7 @@
         @Html.HiddenFor(model => model.NoteId)
         @Html.HiddenFor(model => model.NoteBookId)
 
+        @* Display the Edit Note partial form. *@
         @Html.Partial("_EditNotePartial")
 
         <div class="form-group">
@@ -27,7 +33,10 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10 ">
+                @*POST to the Controller, this causes the fields to be validated and modifications to be stored*@
                 <input type="submit" value="Save" class="btn btn-default btn-primary" />
+
+                @* Do not save the latest changes and return to the notebook screen*@
                 @Html.ActionLink("Cancel Editing", "CloseNote", null, new { @class = "btn  btn-info" })
             </div>
         </div>

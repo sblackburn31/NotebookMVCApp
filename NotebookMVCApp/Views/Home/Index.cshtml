@@ -1,18 +1,26 @@
-﻿@{
+﻿@* Author: David Scott Blackburn *@
+@* Project: Notebook Demo App *@
+@* Version: 1.0.0 *@
+@* Purpose: This is the initial welcome screen.  Only non-authenticated options are available.  The look and feel of this page is controlled by CSS *@
+
+@{
     ViewBag.Title = "Welcome Page";
     ViewBag.Description = "This is the initial welcome screen.";
 }
 
 <div class="jumbotron text-center notebookbackground">
-    <h1>Welcome to
-    <br />  
-    <strong>a Notebook App</strong></h1>
-    <h2 class="text-success">Please<br />
+    <h1>
+        Welcome to
+        <br />
+        <strong>a Notebook App</strong>
+    </h1>
+    <h2 class="text-success">
+        Please<br />
         <a href="/Account/Register" id="registerLink2" class="btn btn-success">Sign Up</a>
         Or
         <a href="/Account/Login" id="loginLink2" class="btn btn-success">Sign In</a>
         <br />
         to Begin!
     </h2>
-    
+
 </div>

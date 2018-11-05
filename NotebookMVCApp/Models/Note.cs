@@ -19,14 +19,32 @@ namespace NotebookMVCApp.Models
         {
             this.NoteBooks = new HashSet<NoteBook>();
         }
-    
+
+        /// <summary>
+        /// Unique Id of the Note
+        /// </summary>
         public long NoteId { get; set; }
+        /// <summary>
+        /// Id of the assoicated Notebook
+        /// </summary>
         public long NoteBookId { get; set; }
+        /// <summary>
+        /// Subject of the Note
+        /// </summary>
         public string Subject { get; set; }
+        /// <summary>
+        /// Note's Text
+        /// </summary>
         public string NoteText { get; set; }
+        /// <summary>
+        /// Date Note was Created
+        /// </summary>
         public System.DateTime CreateDate { get; set; }
+        /// <summary>
+        /// TS of when the note was last updated
+        /// </summary>
         public System.DateTime UpdateDate { get; set; }
-    
+
         public virtual NoteBook NoteBook { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NoteBook> NoteBooks { get; set; }
